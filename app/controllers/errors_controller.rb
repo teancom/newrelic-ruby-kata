@@ -8,6 +8,11 @@ class ErrorsController < ApplicationController
   end
   
   def some_internal_logic(x)
-    return 1 / x
+    begin
+      i = 1 / x
+    rescue ZeroDivisionError
+      i = 0
+    end
+    return i
   end
 end
